@@ -12,3 +12,29 @@
     background-color:#D9dbd5 ;
     height: 85vh;
 }
+.back-container{
+    position: relative;
+}
+.font-container{
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right: 0;
+}
+.font-container1{
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+}
+
+.chat-top{
+    background-color: #ededed;
+    min-height: 50px;
+}
+
+.profile-image{
+    margin-top: 7px;
+    height: 30px;
+    width: 30px;
+}
