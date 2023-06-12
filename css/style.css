@@ -1,0 +1,14 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; 
+}
+.back-top{
+    background-color:#009688 ;
+    height: 15vh;
+}
+
+.back-main{
+    background-color:#D9dbd5 ;
+    height: 85vh;
+}
