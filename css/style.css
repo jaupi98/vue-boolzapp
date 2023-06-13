@@ -38,3 +38,13 @@
     height: 30px;
     width: 30px;
 }
+
+.contacts{
+    background-color: white;
+    min-height: 600px;
+}
+.contact-table-scroll{
+    overflow-y: scroll;
+    height:600px ;
+    
+}
