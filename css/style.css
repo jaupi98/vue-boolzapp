@@ -46,5 +46,13 @@
 .contact-table-scroll{
     overflow-y: scroll;
     height:600px ;
-    
+
+}
+.message-area{
+    background-color:#e4e1de ;
+    min-height: 600px;
+}
+
+.message-box{
+    background-color:#f0f0f0;
 }
