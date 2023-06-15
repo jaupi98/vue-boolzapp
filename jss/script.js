@@ -6,6 +6,8 @@ createApp({
     data(){
         return{
             activeChat: 0,
+            newMessage: '',
+            searchText: '',
             contacts: [
                 {
                     name: 'Michele',
@@ -175,7 +177,44 @@ createApp({
     methods:{
         changeChat(index) {
           this.activeChat = index;
+        },  
+        addMessage() {
+            const activeContact = this.contacts[this.activeChat];
+            const newMessageContent = this.newMessage.trim();
+    
+            if (newMessageContent !== '') {
+            activeContact.messages.push({
+              date: '10/01/2020 15:50',
+              message: this.newMessage,
+              status: 'sent'
+            });
+        }
+            this.newMessage = '';
+            const lastMessage = activeContact.messages[activeContact.messages.length - 1];
+          if (lastMessage.status === 'sent'){
+            setTimeout(() => {
+                let response = {
+                  date: '10/01/2020 15:51:00',
+                  message: 'ok',
+                  status: 'received'
+                };
+            
+                activeContact.messages.push(response);
+              }, 1000);
+            }
+          },
+          searchChat(){
+            let search = this.searchText.toLowerCase();
+    
+          for (let i = 0; i < this.contacts.length; i++) {
+            let contact = this.contacts[i];
+            if (contact.name.toLowerCase().includes(search)) {
+              contact.visible = true;
+            } else {
+              contact.visible = false;
+                }
+            }
         },
-
-    }
+            
+}
 }).mount('#app');
