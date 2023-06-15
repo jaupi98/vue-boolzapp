@@ -181,7 +181,7 @@ createApp({
         addMessage() {
             const activeContact = this.contacts[this.activeChat];
             const newMessageContent = this.newMessage.trim();
-    
+            
             if (newMessageContent !== '') {
             activeContact.messages.push({
               date: '10/01/2020 15:50',
