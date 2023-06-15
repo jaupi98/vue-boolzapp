@@ -29,9 +29,9 @@
                 </div>
                 <div class="col-sm-8 d-flex justify-content-between">
                     <div>
-                        <img  class="profile-image rounded-circle" :src="contacts[activeImage].avatar" alt="">
+                        <img  class="profile-image rounded-circle" :src="contacts[activeChat].avatar" alt="">
                         <span class="mx-2">
-                            {{contacts[activeImage].name}}
+                            {{contacts[activeChat].name}}
                         </span>
                     </div>
                     <div class="mt-2">
@@ -47,7 +47,7 @@
                         <table class="table table-hover">
                             
                             <tbody>
-                              <tr v-for="contact in contacts">          
+                              <tr v-for="(contact, index) in contacts" v-show="contact.visible"   :class="activeChat === index ? 'active-item' : ''" @click="changeChat(index)">          
                                 <td><img  class="profile-image rounded-circle" :src="contact.avatar" alt=""></td>
                                 <td>{{contact.name}} <br><small>Ultio messagio inviato</small></td>
                                 <td><small>12:00</small></td>
@@ -74,17 +74,25 @@
                 <div class="col-sm-8 message-area">
                     <div class="contact-table-scroll">
                         <table class="table ">                          
-                            <tbody>
-                              <tr>          
+                            <tbody >
+                                <tr v-for="(message,index) in contacts[activeChat].messages" :key="index">          
+                                    <td>
+                                        <p v-bind:class="{ 'sent': message.status === 'sent', 'received': message.status === 'received' }"  >{{message.message}} </p>
+                                    </td>
+                                </tr>
+                                 <!-- <tr>          
+                                    <td>
+                                        <p class="bg-success p-2 mt-2 mr-5 shadow-sm text-white float-right rounded ">Ricordati di stendere i panni
+                                            bg-success p-2 mt-2 mr-5 shadow-sm text-white float-right rounded
+                                        </ps>
+                                    </td>
+                                </tr>  -->
+                              <!-- <tr>          
                                 <td>
                                     <p class="bg-primary p-2 mt-2 mr-5 shadow-sm text-white float-left rounded ">tutto fatto</p>
                                 </td>
                             </tr>
-                            <tr>          
-                                <td>
-                                    <p class="bg-success p-2 mt-2 mr-5 shadow-sm text-white float-right rounded ">tutto fatto</ps>
-                                </td>
-                            </tr>  
+                              -->
                             </tbody>
                           </table>
                     </div>
